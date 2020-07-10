@@ -3,8 +3,21 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    cache = {}
+    intersec_arr = []
+    input_length = len(arrays)
 
-    return result
+    for x in arrays:
+
+        for y in x:
+            if y not in cache:
+                cache[y] = 1
+            else:
+                cache[y] += 1
+            if cache[y] == input_length:
+                intersec_arr.append(y)
+
+    return intersec_arr
 
 
 if __name__ == "__main__":
